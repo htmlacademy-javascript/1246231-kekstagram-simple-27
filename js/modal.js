@@ -174,9 +174,6 @@ const resetEffects = () => {
   udpateSlider();
 };
 
-
-
-
 // hadlers
 const modalHadlers = () => {
 
@@ -209,8 +206,6 @@ const modalHadlers = () => {
       resetEffects();
     }
   });
-
-
 
   lowerButton.addEventListener('click', onDecreaseButtonClick);
   boostButton.addEventListener('click', onIncreaseButtonClick);
