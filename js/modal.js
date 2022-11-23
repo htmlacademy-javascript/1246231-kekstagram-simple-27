@@ -164,7 +164,7 @@ const sliderUpdateHandler = () => {
     return;
   }
   const sliderValue = sliderElement.noUiSlider.get();
-  imagePreviewUpload.style.filter = `${activeEffect.class}(${sliderValue}${activeEffect.unit})`;
+  imagePreviewUpload.style.filter = `${activeEffect.style}(${sliderValue}${activeEffect.unit})`;
   imagePreviewUpload.classList.add(`effects__preview--${activeEffect.name}`);
   effectValue.value = sliderValue;
 };
@@ -174,20 +174,22 @@ const resetEffects = () => {
   udpateSlider();
 };
 
-noUiSlider.create(sliderElement, {
-  range: {
-    min: DEFAULT_EFFECT.min,
-    max: DEFAULT_EFFECT.max,
-  },
-  start: DEFAULT_EFFECT.max,
-  step: DEFAULT_EFFECT.step,
-  connect: 'lower',
-});
 
-udpateSlider();
+
 
 // hadlers
 const modalHadlers = () => {
+
+  noUiSlider.create(sliderElement, {
+    range: {
+      min: DEFAULT_EFFECT.min,
+      max: DEFAULT_EFFECT.max,
+    },
+    start: DEFAULT_EFFECT.max,
+    step: DEFAULT_EFFECT.step,
+    connect: 'lower',
+  });
+
   modalClose.addEventListener('click', () => {
     closeModal();
     //
@@ -207,6 +209,8 @@ const modalHadlers = () => {
       resetEffects();
     }
   });
+
+
 
   lowerButton.addEventListener('click', onDecreaseButtonClick);
   boostButton.addEventListener('click', onIncreaseButtonClick);
