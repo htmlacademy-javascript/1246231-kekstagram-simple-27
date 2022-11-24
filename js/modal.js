@@ -175,7 +175,7 @@ const resetEffects = () => {
 };
 
 // hadlers
-const modalHadlers = () => {
+const addEventListenerForModal = () => {
 
   noUiSlider.create(sliderElement, {
     range: {
@@ -215,4 +215,4 @@ const modalHadlers = () => {
   sliderElement.noUiSlider.on('update', sliderUpdateHandler);
 };
 
-export { modalHadlers };
+export { addEventListenerForModal };

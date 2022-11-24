@@ -5,7 +5,7 @@ const pictureTemplate = document.querySelector('#picture').content.querySelector
  * Функция, наполняющая миниатюры данными из массива.
  * @param {Array} picturesData - данные списка фотографий.
  */
-const renderingPhotoMiniature = (picturesData) => {
+const renderPhotoMiniature = (picturesData) => {
   const userPhotoFragment = document.createDocumentFragment();
   picturesData.forEach(({ url, comment, likes }) => {
     const userPhoto = pictureTemplate.cloneNode(true);
@@ -17,4 +17,4 @@ const renderingPhotoMiniature = (picturesData) => {
   pictures.appendChild(userPhotoFragment);
 };
 
-export { renderingPhotoMiniature };
+export { renderPhotoMiniature };
