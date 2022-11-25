@@ -1,8 +1,10 @@
-import { createArrayCards } from './data.js';
-import { renderingPhotoMiniature } from './rendering-thumbnails.js';
-import { PHOTO_CARDS } from './mock/mock-data.js';
-import { modalHadlers } from './modal.js';
+import { renderPhotoMiniature } from './rendering-thumbnails.js';
+import { getData } from './form/api.js';
+import { setUserFormSubmit } from './form/validate-form.js';
+import { closeModal } from './modal/modal-main.js';
 
-const picturesData = createArrayCards(PHOTO_CARDS);
-renderingPhotoMiniature(picturesData);
-modalHadlers();
+getData((picturesData) => {
+  renderPhotoMiniature(picturesData);
+});
+
+setUserFormSubmit(closeModal);

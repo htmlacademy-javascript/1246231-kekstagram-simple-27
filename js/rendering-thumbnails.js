@@ -5,16 +5,16 @@ const pictureTemplate = document.querySelector('#picture').content.querySelector
  * Функция, наполняющая миниатюры данными из массива.
  * @param {Array} picturesData - данные списка фотографий.
  */
-const renderingPhotoMiniature = (picturesData) => {
+const renderPhotoMiniature = (picturesData) => {
   const userPhotoFragment = document.createDocumentFragment();
-  picturesData.forEach(({ url, comment, likes }) => {
+  picturesData.forEach(({ url, comments, likes }) => {
     const userPhoto = pictureTemplate.cloneNode(true);
     userPhoto.querySelector('.picture__img').src = url;
-    userPhoto.querySelector('.picture__comments').textContent = comment;
+    userPhoto.querySelector('.picture__comments').textContent = comments;
     userPhoto.querySelector('.picture__likes').textContent = likes;
     userPhotoFragment.appendChild(userPhoto);
   });
   pictures.appendChild(userPhotoFragment);
 };
 
-export { renderingPhotoMiniature };
+export { renderPhotoMiniature };
