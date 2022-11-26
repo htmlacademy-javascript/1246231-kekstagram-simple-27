@@ -33,7 +33,7 @@ const pristine = new Pristine(uploadForm, {
   classTo: 'text',
   errorTextParent: 'text',
   errorTextTag: 'span',
-  errorTextClass: 'text__description--error',
+  errorTextClass: 'pristine-error',
 });
 
 /**
@@ -76,5 +76,6 @@ const setUserFormSubmit = (onSuccess) => {
 };
 
 export {
-  setUserFormSubmit
+  setUserFormSubmit,
+  pristine
 };

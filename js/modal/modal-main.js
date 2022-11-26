@@ -1,6 +1,7 @@
 import { isEscapeKey } from '../util.js';
 import { resetEffects } from './effects-preview.js';
 import { resetScale } from './resize-preview.js';
+import { pristine } from './../form/validate-form.js';
 
 const modalForm = document.querySelector('.img-upload__form');
 const modalUpload = document.querySelector('#upload-file');
@@ -28,6 +29,7 @@ const closeModal = () => {
   resetEffects();
   resetScale();
   modalForm.reset();
+  pristine.reset();
 };
 
 /**
@@ -49,8 +51,10 @@ const onCloseModal = () => {
  */
 function onModalEscKeydown(evt) {
   if (isEscapeKey(evt)) {
-    evt.preventDefault();
-    closeModal();
+    if (document.querySelector('.error') === null) {
+      evt.preventDefault();
+      closeModal();
+    }
   }
 }
 
